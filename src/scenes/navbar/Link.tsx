@@ -1,15 +1,20 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-types */
 
 import AnchorLink from "react-anchor-link-smooth-scroll"
+import { SelectedPage } from "../../shared/types"
 
 type Props = {
-    page : string
+    page : string,
+    selectedPage :SelectedPage,
+    setSelectedPage : (data:SelectedPage)=>void,
+
 }
 
-const Link = ({page}: Props) => {
+const Link = ({page , selectedPage , setSelectedPage}: Props) => {
+    const lowerCasePage = page.toLowerCase().replace(/ /g , '') as SelectedPage;
   return (
-    <AnchorLink>{page}</AnchorLink>
+    <AnchorLink onClick={()=>setSelectedPage(lowerCasePage)} href={`#${lowerCasePage}`} 
+    className={`${selectedPage === lowerCasePage ? "text-primary-500" : ""} 
+    transition duration-500 hover:text-primary-500`}>{page}</AnchorLink>
   )
 }
 

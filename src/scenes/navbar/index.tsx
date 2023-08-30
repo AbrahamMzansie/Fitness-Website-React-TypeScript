@@ -1,12 +1,19 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import React , {useState} from "react";
 import { Bars3Icon , XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from '@/assets/Logo.png';
+import Link from "./Link";
+import { SelectedPage } from "../../shared/types";
 
 
-type Props = unknown
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const NavBar = (props :Props) => {
+type Props = {  
+  selectedPage: SelectedPage;
+  setSelectedPage: (value: SelectedPage) => void;
+};
+
+const NavBar = ({selectedPage ,setSelectedPage} :Props) => {
+  
   const flexBetween = "flex items-center justify-between";
   return (
     <nav>
@@ -16,11 +23,11 @@ const NavBar = (props :Props) => {
           <img src={Logo} alt="logo"/>
           <div className={`{flexBetween} w-full`}>
             <div className={`${flexBetween} gap-8 text-sm`}>
-              <p>Home</p>
-              <p>Benifits</p>
-              <p>Our Classes</p>
-              <p>Contact Us</p>
-              <p>Home</p>
+              <Link setSelectedPage={setSelectedPage} selectedPage={selectedPage} page="Home"/>
+              <Link setSelectedPage={setSelectedPage} selectedPage={selectedPage} page="Benefits"/>
+              <Link setSelectedPage={setSelectedPage} selectedPage={selectedPage} page="Our Classes"/>
+              <Link setSelectedPage={setSelectedPage} selectedPage={selectedPage} page="Contact Us"/>
+              
             </div>            
           </div>
           <div className={`${flexBetween} w-full gap-8`}>
