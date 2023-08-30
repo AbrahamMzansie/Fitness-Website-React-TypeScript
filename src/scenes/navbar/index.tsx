@@ -27,7 +27,6 @@ const NavBar = ({selectedPage ,setSelectedPage} :Props) => {
               <Link setSelectedPage={setSelectedPage} selectedPage={selectedPage} page="Benefits"/>
               <Link setSelectedPage={setSelectedPage} selectedPage={selectedPage} page="Our Classes"/>
               <Link setSelectedPage={setSelectedPage} selectedPage={selectedPage} page="Contact Us"/>
-              
             </div>            
           </div>
           <div className={`${flexBetween} w-full gap-8`}>
